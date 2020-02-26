@@ -1,0 +1,27 @@
+<h2>Products list</h2>
+
+
+<!-- 
+Copyright Google LLC. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+-->
+
+<div *ngFor="let item of products" >
+  <h3>
+    <a>
+      {{item.name}}
+    </a>
+  </h3>
+  <p>
+    Price: {{item.price | currency:'NTD$'}}
+  </p>
+  <p *ngIf="item.description">
+    description: {{item.description}}
+  </p>
+  <button (click)="share(item.name)">
+    share
+  </button>
+  <app-product-alert [product]="item" (notify)="onNotify()">
+  </app-product-alert>
+</div>
